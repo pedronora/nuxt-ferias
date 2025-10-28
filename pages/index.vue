@@ -110,7 +110,12 @@
 <script setup lang="ts">
 import { ref, computed } from "vue";
 import * as yup from "yup";
-import { useFetch } from "nuxt/app"; // Supondo que você está em um projeto Nuxt
+import { useFetch, useSeoMeta } from "nuxt/app";
+
+useSeoMeta({
+  title: "Minhas Férias | Gerenciamento de Férias",
+  description: "Sistema para gerenciar e visualizar pedidos de férias.",
+});
 
 interface Periodo {
   inicio: string;

@@ -42,8 +42,13 @@
 </template>
 
 <script setup lang="ts">
-import { useAsyncData, useFetch } from "nuxt/app";
+import { useAsyncData, useFetch, useSeoMeta } from "nuxt/app";
 import type { Ferias } from "@prisma/client";
+
+useSeoMeta({
+  title: "Férias Marcadas | Gerenciamento de Férias",
+  description: "Sistema para gerenciar e visualizar pedidos de férias.",
+});
 
 // 1. Definição do tipo auxiliar FeriasWithPeriods
 // Os campos de data vêm como string ou Date do servidor, ou null
