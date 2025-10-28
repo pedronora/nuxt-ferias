@@ -80,11 +80,15 @@ const calcularDias = (inicio: Date, fim: Date): number => {
 
 // Helper para formatar a data para o padrão brasileiro DD/MM/AAAA
 const formatarData = (data: Date): string => {
-  // Usando toLocaleDateString com 'pt-BR'
-  return data.toLocaleDateString("pt-BR");
+  const dia = data.getUTCDate();
+  const mes = data.getUTCMonth() + 1;
+  const ano = data.getUTCFullYear();
+  const diaFormatado = String(dia).padStart(2, "0");
+  const mesFormatado = String(mes).padStart(2, "0");
+
+  return `${diaFormatado}/${mesFormatado}/${ano}`;
 };
 
-// 3. FUNÇÃO CORRIGIDA: periodos
 // Extrai e formata os períodos a partir das colunas separadas
 function periodos(feria: FeriasWithPeriods): string[] {
   const allPeriods: string[] = [];
@@ -101,11 +105,9 @@ function periodos(feria: FeriasWithPeriods): string[] {
 
     // Verifica se os valores existem
     if (inicioValue && fimValue) {
-      // 🚨 CORREÇÃO: Converte a string (ou Date) em um objeto Date antes de usar .getTime()
       const inicio = new Date(inicioValue);
       const fim = new Date(fimValue);
 
-      // Garante que as datas são válidas (em caso de string inválida)
       if (!isNaN(inicio.getTime()) && !isNaN(fim.getTime())) {
         const dias = calcularDias(inicio, fim);
         const formattedInicio = formatarData(inicio);
