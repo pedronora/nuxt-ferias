@@ -1,0 +1,50 @@
+# ------------------------------------
+# 1. DEPENDÊNCIAS
+# ------------------------------------
+/node_modules
+/.pnpm
+/.yarn
+/package-lock.json
+/yarn.lock
+/pnpm-lock.yaml
+
+# ------------------------------------
+# 2. DIRETÓRIOS E ARQUIVOS DE BUILD/OUTPUT
+# ------------------------------------
+/.nuxt                 # Diretório de build do Nuxt (crucial!)
+/.output               # Diretório de output da build final (usado no deploy)
+/dist                  # Outros diretórios de distribuição
+/tmp                   # Arquivos temporários
+
+# ------------------------------------
+# 3. PRISMA
+# ------------------------------------
+# Ignora todos os arquivos de banco de dados SQLite e seus arquivos de journal/cache
+/prisma/*.db
+/prisma/*.db-journal
+/prisma/*.sqlite
+/prisma/*.sqlite-journal
+
+# ------------------------------------
+# 4. AMBIENTE E CONFIGURAÇÃO SECRETA
+# ------------------------------------
+.env                   # Arquivo de variáveis de ambiente (contém senhas/chaves)
+.env.*.local           # Variáveis de ambiente locais (dev/test)
+!.env.example          # NÃO IGNORE: Arquivo de exemplo (se existir) deve ser rastreado.
+
+# ------------------------------------
+# 5. DIRETÓRIOS DE CACHE
+# ------------------------------------
+/.vitepress/cache
+/.vuepress/cache
+/.eslintcache
+/.cache
+
+# ------------------------------------
+# 6. ARQUIVOS DO SISTEMA E EDITORES
+# ------------------------------------
+.DS_Store              # macOS
+Thumbs.db              # Windows
+.vscode                # Configurações de editor (se for algo pessoal)
+!.vscode/settings.json # Exceção: Rastrear configurações úteis para o time (se houver)
+!.vscode/extensions.json # Exceção: Rastrear sugestões de extensões

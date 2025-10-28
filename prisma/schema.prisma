@@ -1,0 +1,22 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./ferias.db"
+}
+
+model Ferias {
+  id        Int     @id @default(autoincrement())
+  nome      String
+  email     String
+  periodo1I DateTime?
+  periodo1F DateTime?
+  periodo2I DateTime?
+  periodo2F DateTime?
+  periodo3I DateTime?
+  periodo3F DateTime?
+  totalDias Int
+  createdAt DateTime @default(now())
+}
