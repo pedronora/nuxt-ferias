@@ -3,13 +3,13 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
+    "build": "prisma generate && nuxt build",
     "dev": "nuxt dev",
-    "build": "nuxt build",
-    "start": "nuxt start",
-    "prisma": "prisma"
+    "start": "nuxt start"
   },
   "dependencies": {
     "@prisma/client": "^5.10.0",
+    "prisma": "^5.10.0",
     "bootstrap": "^5.3.8",
     "json2csv": "^6.0.0-alpha.2",
     "nuxt": "^3.19.3",
@@ -17,7 +17,6 @@
   },
   "devDependencies": {
     "@types/node": "^24.9.1",
-    "prisma": "^5.10.0",
     "typescript": "^5.9.3"
   }
 }
