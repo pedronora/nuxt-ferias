@@ -18,28 +18,32 @@
         <NuxtLink class="btn btn-secondary mb-3" to="/">Voltar</NuxtLink>
       </div>
 
-      <table class="table table-bordered table-striped">
-        <thead class="table-light">
-          <tr>
-            <th>Nome</th>
-            <th>E-mail</th>
-            <th>Total (dias)</th>
-            <th>Períodos</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr v-for="f in ferias" :key="f.id">
-            <td>{{ f.nome }}</td>
-            <td>{{ f.email }}</td>
-            <td class="text-center">{{ f.totalDias }}</td>
-            <td>
-              <ul class="mb-0">
-                <li v-for="(p, index) in periodos(f)" :key="index">{{ p }}</li>
-              </ul>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+      <div class="table-responsive">
+        <table class="table table-bordered table-striped">
+          <thead class="table-light">
+            <tr>
+              <th>Nome</th>
+              <th>E-mail</th>
+              <th>Total (dias)</th>
+              <th>Períodos</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="f in ferias" :key="f.id">
+              <td>{{ f.nome }}</td>
+              <td>{{ f.email }}</td>
+              <td class="text-center">{{ f.totalDias }}</td>
+              <td>
+                <ul class="mb-0">
+                  <li v-for="(p, index) in periodos(f)" :key="index">
+                    {{ p }}
+                  </li>
+                </ul>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
 </template>
