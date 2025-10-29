@@ -1,1 +1,0 @@
-export { default } from "file:///home/pedro/Documentos/Projetos/nuxt-ferias/node_modules/@nuxt/vite-builder/dist/runtime/vite-node.mjs"
