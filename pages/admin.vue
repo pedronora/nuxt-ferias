@@ -11,9 +11,12 @@
     </div>
 
     <div v-else>
-      <button @click="exportarParaCSV" class="btn btn-success mb-3">
-        Exportar CSV
-      </button>
+      <div class="d-flex justify-content-between">
+        <button @click="exportarParaCSV" class="btn btn-success mb-3">
+          Exportar CSV
+        </button>
+        <NuxtLink class="btn btn-secondary mb-3" to="/">Voltar</NuxtLink>
+      </div>
 
       <table class="table table-bordered table-striped">
         <thead class="table-light">
