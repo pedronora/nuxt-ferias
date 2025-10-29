@@ -52,14 +52,14 @@ export default defineNuxtConfig({
         // 1. Cor para Modo Claro (Light Mode)
         {
           name: "theme-color",
-          content: "#2e65ffff", // Seu azul principal
+          content: "#2e65ffff",
           media: "(prefers-color-scheme: light)",
         },
 
         // 2. Cor para Modo Escuro (Dark Mode)
         {
           name: "theme-color",
-          content: "#0a008fff", // Um azul escuro que harmonize com o Dark Mode
+          content: "#0a008fff",
           media: "(prefers-color-scheme: dark)",
         },
 
