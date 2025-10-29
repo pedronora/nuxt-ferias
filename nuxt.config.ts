@@ -52,19 +52,19 @@ export default defineNuxtConfig({
         // 1. Cor para Modo Claro (Light Mode)
         {
           name: "theme-color",
-          content: "#4a7aff", // Seu azul principal
+          content: "#2e65ffff", // Seu azul principal
           media: "(prefers-color-scheme: light)",
         },
 
         // 2. Cor para Modo Escuro (Dark Mode)
         {
           name: "theme-color",
-          content: "#1a1a1a", // Um cinza escuro ou preto que harmonize com o Dark Mode
+          content: "#0a008fff", // Um azul escuro que harmonize com o Dark Mode
           media: "(prefers-color-scheme: dark)",
         },
 
         // 3. Cor para o bloco do Windows (msapplication-TileColor é um fallback)
-        { name: "msapplication-TileColor", content: "#4a7aff" },
+        { name: "msapplication-TileColor", content: "#2e65ffff" },
       ],
     },
   },
