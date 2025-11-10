@@ -121,8 +121,9 @@ import { ref, onMounted } from "vue";
 import { useRouter } from "vue-router";
 
 useSeoMeta({
-  title: "Férias Marcadas | Gerenciamento de Férias",
-  description: "Sistema para gerenciar e visualizar pedidos de férias.",
+  title: "Férias Marcadas | Gerenciamento de Férias  | 1º RI de Cascavel/PR",
+  description:
+    "1º RI de Cascavel/PR - Sistema para gerenciar e visualizar pedidos de férias.",
 });
 
 const router = useRouter();

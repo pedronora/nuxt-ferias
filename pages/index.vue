@@ -118,8 +118,9 @@ import * as yup from "yup";
 import { useFetch, useSeoMeta } from "nuxt/app";
 
 useSeoMeta({
-  title: "Minhas Férias | Gerenciamento de Férias",
-  description: "Sistema para gerenciar e visualizar pedidos de férias.",
+  title: "Minhas Férias | Gerenciamento de Férias | 1º RI de Cascavel/PR",
+  description:
+    "1º RI de Cascavel/PR - Sistema para gerenciar e visualizar pedidos de férias.",
 });
 
 interface Periodo {
