@@ -20,3 +20,10 @@ model Ferias {
   totalDias Int
   createdAt DateTime @default(now())
 }
+
+model User {
+  id           Int      @id @default(autoincrement())
+  username     String   @unique
+  passwordHash String
+  createdAt    DateTime @default(now())
+}
