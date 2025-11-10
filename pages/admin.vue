@@ -2,8 +2,8 @@
   <!-- LOGIN -->
   <div
     v-if="!isAuthenticated"
-    class="d-flex justify-content-center align-items-center vh-100 bg-light"
-    style="min-height: 70vh"
+    class="d-flex justify-content-center align-items-start vh-100 bg-light"
+    style="min-height: 80vh; padding-top: 150px"
   >
     <div class="card shadow-sm p-4" style="width: 100%; max-width: 400px">
       <h3 class="text-center mb-4">Acesso Restrito</h3>
