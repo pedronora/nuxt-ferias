@@ -1,8 +1,5 @@
-// server/api/ferias/ferias.post.ts
 import { defineEventHandler, readBody, createError } from "h3";
-import { PrismaClient } from "@prisma/client";
-
-const prisma = new PrismaClient();
+import prisma from "~/server/lib/prisma";
 
 export default defineEventHandler(async (event) => {
   // event tem tipo implícito any, agora é inferido pelo TypeScript
