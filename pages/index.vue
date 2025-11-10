@@ -98,9 +98,14 @@
         <button
           type="submit"
           class="btn btn-primary"
+          :class="{ 'opacity-50': isSubmitDisabled }"
           :disabled="isSubmitDisabled"
         >
-          Enviar Marcação
+          <span v-if="!loading">Enviar Marcação</span>
+          <span v-else>
+            <span class="spinner-border spinner-border-sm me-2"></span
+            >Enviando...
+          </span>
         </button>
       </div>
     </form>
@@ -129,6 +134,8 @@ const periodoErrors = ref<string[]>([""]);
 
 const alertMessage = ref("");
 const alertType = ref("alert-success");
+
+const loading = ref(false);
 
 const MAX_PERIODOS = 3;
 const MIN_DIAS_PERIODO = 5;
@@ -228,9 +235,16 @@ function validatePeriodo(index: number) {
  */
 const isSubmitDisabled = computed(() => {
   const hasPeriodErrors = periodoErrors.value.some((err) => err.length > 0);
-  const hasAnyPeriodCompleted = periodos.value.some((p) => p.inicio && p.fim);
+  const hasIncompletePeriod = periodos.value.some((p) => !p.inicio || !p.fim);
+  const totalDias = totalDiasSelecionados.value;
 
-  return hasPeriodErrors || !hasAnyPeriodCompleted;
+  return (
+    !nome.value.trim() ||
+    !email.value.trim() ||
+    hasPeriodErrors ||
+    hasIncompletePeriod ||
+    totalDias !== 30
+  );
 });
 
 // --- Validação Yup Completa no Envio ---
@@ -316,6 +330,7 @@ const schema = yup.object().shape({
 // --- Lógica de Envio ---
 
 async function enviar() {
+  loading.value = true;
   alertMessage.value = "";
 
   // 1. FILTRAR: Remove períodos onde 'inicio' ou 'fim' estão vazios.
@@ -355,14 +370,8 @@ async function enviar() {
     alertMessage.value =
       yupErrors || serverError || "Erro desconhecido ao enviar marcação.";
     alertType.value = "alert-danger";
+  } finally {
+    loading.value = false;
   }
 }
 </script>
-
-<style scoped>
-/* Pequeno ajuste de estilo para o botão remover */
-.btn-sm {
-  line-height: 1; /* Alinha o X no centro */
-  padding: 0.25rem 0.5rem;
-}
-</style>
